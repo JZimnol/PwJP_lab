@@ -1,0 +1,26 @@
+<?xml version="1.0" ?><notes>
+    <note id="1">
+        <to>Michalek</to>
+        <from>Adam</from>
+        <heading>Informacja</heading>
+        <body>Jakas informacja</body>
+    </note>
+    <note id="2">
+        <to>Tomek</to>
+        <from>Karol</from>
+        <heading>Przypominajka</heading>
+        <body>Jakas przypominajka</body>
+    </note>
+    <note id="3">
+        <to>Marcin</to>
+        <from>Piotrek</from>
+        <heading>Cokolwiek</heading>
+        <body>Nie wiem, co to nappisac</body>
+    </note>
+    <note id="100">
+        <to>Lukasz</to>
+        <from>Krzysiek</from>
+        <note>przykladowe note</note>
+        <body>proste body</body>
+    </note>
+</notes>

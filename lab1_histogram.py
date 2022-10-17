@@ -1,3 +1,4 @@
+import copy
 import psutil
 import time
 import threading
@@ -27,8 +28,9 @@ def create_datagram():
 
     def animate(frame):
         lock.acquire()
-        bars[frame].set_height(datagram_data[frame])
+        local_data = copy.copy(datagram_data)
         lock.release()
+        bars[frame].set_height(local_data[frame])
 
     ani = FuncAnimation(fig, animate, frames=psutil.cpu_count(), interval=10)
     plt.show()

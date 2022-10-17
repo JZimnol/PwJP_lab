@@ -1,5 +1,6 @@
 import xml.sax
 
+
 class NoteHanlder(xml.sax.ContentHandler):
     def __init__(self):
         self.current = ""

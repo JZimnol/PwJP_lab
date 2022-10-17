@@ -1,5 +1,6 @@
 import xml.dom.minidom
 
+
 domtree = xml.dom.minidom.parse('input_xml.xml')
 group = domtree.documentElement
 notes = group.getElementsByTagName('note')

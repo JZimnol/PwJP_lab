@@ -1,4 +1,5 @@
 import random
+import timeit
 
 
 def partition(arr: list, low: int, high: int) -> int:

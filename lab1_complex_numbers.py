@@ -16,6 +16,10 @@ class ComplexNumber:
     def __str__(self):
         return f"({self.real} + {self.imag}j)"
 
+    def __repr__(self):
+        rep = f'ComplexNumber{self.__str__()}'
+        return rep
+
     def print_number(self):
         print(self.__str__())
 
@@ -24,14 +28,15 @@ if __name__ == '__main__':
     num1 = ComplexNumber(2, 3)
     num2 = ComplexNumber(-1, 4)
 
-    print(f"Test: {num1.__str__()} + {num2.__str__()}")
-    num3 = num1 + num2
-    print(f"Result: {num3.__str__()}")
+    for _ in range(1):
+        print(f"Test: {num1} + {num2}")
+        num3 = num1 + num2
+        print(f"Result: {num3}")
 
-    print(f"Test: {num1.__str__()} - {num2.__str__()}")
-    num3 = num1 - num2
-    print(f"Result: {num3.__str__()}")
+        print(f"Test: {num1} - {num2}")
+        num3 = num1 - num2
+        print(f"Result: {num3}")
 
-    print(f"Test: {num1.__str__()} * {num2.__str__()}")
-    num3 = num1 * num2
-    print(f"Result: {num3.__str__()}")
+        print(f"Test: {num1} * {num2}")
+        num3 = num1 * num2
+        print(f"Result: {num3}")

@@ -55,7 +55,7 @@ class MyJsonClass():
 
     def save(self):
         with open(self.file_path, 'w') as f:
-            json.dump(self.data, f)
+            json.dump(self.data, f, indent=4)
 
 
 if __name__ == '__main__':
@@ -74,6 +74,7 @@ if __name__ == '__main__':
         elif user_input == 4:
             movies.delete()
         elif user_input == 5:
+            movies.save()
             break
         else:
             pass

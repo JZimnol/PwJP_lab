@@ -1,1 +1,10 @@
-{"LOTR": {"description": "Wladca Pierscieni", "rating": "10/10"}, "LOTR2": {"description": "ABCD", "rating": "10/10"}}
+{
+    "LOTR": {
+        "description": "Wladca Pierscieni",
+        "rating": "10/10"
+    },
+    "Terminator": {
+        "description": "Cos o robotach",
+        "rating": "8/10"
+    }
+}

@@ -28,15 +28,23 @@ if __name__ == '__main__':
     num1 = ComplexNumber(2, 3)
     num2 = ComplexNumber(-1, 4)
 
-    for _ in range(1):
-        print(f"Test: {num1} + {num2}")
-        num3 = num1 + num2
-        print(f"Result: {num3}")
+    print(f"Test: {num1} + {num2}")
+    num3 = num1 + num2
+    expected = ComplexNumber(1, 7)
+    print(f"Result: {num3}, expected: {num3}")
+    assert num3.real == expected.real
+    assert num3.imag == expected.imag
 
-        print(f"Test: {num1} - {num2}")
-        num3 = num1 - num2
-        print(f"Result: {num3}")
+    print(f"Test: {num1} - {num2}")
+    num3 = num1 - num2
+    expected = ComplexNumber(3, -1)
+    print(f"Result: {num3}, expected: {num3}")
+    assert num3.real == expected.real
+    assert num3.imag == expected.imag
 
-        print(f"Test: {num1} * {num2}")
-        num3 = num1 * num2
-        print(f"Result: {num3}")
+    print(f"Test: {num1} * {num2}")
+    num3 = num1 * num2
+    expected = ComplexNumber(-14, 5)
+    print(f"Result: {num3}, expected: {num3}")
+    assert num3.real == expected.real
+    assert num3.imag == expected.imag

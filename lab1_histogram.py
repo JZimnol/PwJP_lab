@@ -2,41 +2,40 @@ import copy
 import psutil
 import time
 import threading
+from queue import Queue
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 
-lock = threading.Lock()
-datagram_data = psutil.cpu_percent(percpu=True)
+queue = Queue()
+CPU_COUNT = psutil.cpu_count()
 
 
 def get_cpu_usage():
-    global datagram_data
     while True:
-        lock.acquire()
-        datagram_data = psutil.cpu_percent(percpu=True)
-        lock.release()
-        time.sleep(0.200)
+        if queue.empty():
+            queue.put(psutil.cpu_percent(percpu=True))
+        time.sleep(0.050)
 
 
 def create_datagram():
     plt.rcParams["figure.figsize"] = [7.50, 3.50]
     plt.rcParams["figure.autolayout"] = True
     fig = plt.figure()
-    initial = [i for i in range(1, psutil.cpu_count()+1)]
+    initial = [i for i in range(1, CPU_COUNT+1)]
     bars = plt.bar(initial, 100, facecolor='green', alpha=0.75)
 
     def animate(frame):
-        lock.acquire()
-        local_data = copy.copy(datagram_data)
-        lock.release()
-        bars[frame].set_height(local_data[frame])
+        local_data = queue.get()
+        for i in range(CPU_COUNT):
+            bars[i].set_height(local_data[i])
 
-    ani = FuncAnimation(fig, animate, frames=psutil.cpu_count(), interval=10)
+    ani = FuncAnimation(fig, animate, frames=CPU_COUNT, interval=60)
     plt.show()
 
 
 if __name__ == '__main__':
+    queue.put(psutil.cpu_percent(percpu=True))
     t1 = threading.Thread(target=get_cpu_usage)
     t2 = threading.Thread(target=create_datagram)
 
